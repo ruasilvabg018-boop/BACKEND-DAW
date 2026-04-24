@@ -1,0 +1,361 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Academia API",
+    "description": "API para gerenciamento de alunos, exercícios e personais.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor local"
+    }
+  ],
+  "paths": {
+    "/alunos": {
+      "get": {
+        "summary": "Listar alunos",
+        "responses": {
+          "200": {
+            "description": "Lista de alunos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Aluno" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Criar aluno",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AlunoInput" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Aluno criado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Aluno" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/alunos/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": { "type": "string" }
+        }
+      ],
+      "get": {
+        "summary": "Buscar aluno por ID",
+        "responses": {
+          "200": {
+            "description": "Aluno encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Aluno" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualizar aluno",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AlunoInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Aluno atualizado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Aluno" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Excluir aluno",
+        "responses": {
+          "200": {
+            "description": "Aluno excluído"
+          }
+        }
+      }
+    },
+    "/exercicios": {
+      "get": {
+        "summary": "Listar exercícios",
+        "responses": {
+          "200": {
+            "description": "Lista de exercícios",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Exercicio" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Criar exercício",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ExercicioInput" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Exercício criado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Exercicio" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/exercicios/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": { "type": "string" }
+        }
+      ],
+      "get": {
+        "summary": "Buscar exercício por ID",
+        "responses": {
+          "200": {
+            "description": "Exercício encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Exercicio" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualizar exercício",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ExercicioInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Exercício atualizado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Exercicio" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Excluir exercício",
+        "responses": {
+          "200": {
+            "description": "Exercício excluído"
+          }
+        }
+      }
+    },
+    "/personais": {
+      "get": {
+        "summary": "Listar personais",
+        "responses": {
+          "200": {
+            "description": "Lista de personais",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Personal" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Criar personal",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PersonalInput" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Personal criado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Personal" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/personais/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": { "type": "string" }
+        }
+      ],
+      "get": {
+        "summary": "Buscar personal por ID",
+        "responses": {
+          "200": {
+            "description": "Personal encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Personal" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualizar personal",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PersonalInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Personal atualizado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Personal" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Excluir personal",
+        "responses": {
+          "200": {
+            "description": "Personal excluído"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Aluno": {
+        "type": "object",
+        "properties": {
+          "_id": { "type": "string" },
+          "nome": { "type": "string" },
+          "email": { "type": "string" },
+          "idade": { "type": "integer" },
+          "peso": { "type": "number" },
+          "personal": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" }
+        }
+      },
+      "AlunoInput": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string" },
+          "email": { "type": "string" },
+          "idade": { "type": "integer" },
+          "peso": { "type": "number" },
+          "personal": { "type": "string" }
+        },
+        "required": ["nome", "email", "idade", "peso", "personal"]
+      },
+      "Exercicio": {
+        "type": "object",
+        "properties": {
+          "_id": { "type": "string" },
+          "nome": { "type": "string" },
+          "limiteCarga": { "type": "number" },
+          "grupoMuscularAlvo": { "type": "string" },
+          "perfilResistencia": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" }
+        }
+      },
+      "ExercicioInput": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string" },
+          "limiteCarga": { "type": "number" },
+          "grupoMuscularAlvo": { "type": "string" },
+          "perfilResistencia": { "type": "string" }
+        },
+        "required": ["nome", "limiteCarga", "grupoMuscularAlvo", "perfilResistencia"]
+      },
+      "Personal": {
+        "type": "object",
+        "properties": {
+          "_id": { "type": "string" },
+          "nome": { "type": "string" },
+          "foto": { "type": "string" },
+          "anosExperiencia": { "type": "integer" },
+          "telefone": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" }
+        }
+      },
+      "PersonalInput": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string" },
+          "foto": { "type": "string" },
+          "anosExperiencia": { "type": "integer" },
+          "telefone": { "type": "string" }
+        },
+        "required": ["nome", "foto", "anosExperiencia", "telefone"]
+      }
+    }
+  }
+}
