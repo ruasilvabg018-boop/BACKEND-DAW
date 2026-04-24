@@ -1,2 +1,0 @@
-# TrabalhoDaw-FRONT
-# BACKEND-DAW
