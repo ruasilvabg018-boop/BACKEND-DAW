@@ -1,0 +1,1 @@
+Meu extra foi adicionar imagens quando for criar Personal. Além disso, a imagem é mostrada em forma de bolinha ao inves de quadrada.
